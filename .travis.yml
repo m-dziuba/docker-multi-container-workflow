@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t mdziuba/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true mdziuba/react-test npm test
+
+after_success:
+  - docker build -t mdziuba/multi-client ./client
+  - docker build -t mdziuba/multi-worker ./worker
+  - docker build -t mdziuba/multi-server ./server
+  - docker build -t mdziuba/multi-worker ./worker
