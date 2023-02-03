@@ -18,7 +18,7 @@ after_success:
   - docker push mdziuba97/multi-client
   - docker push mdziuba97/multi-worker
   - docker push mdziuba97/multi-server
-  - docker push mdziuba97/multi-nginx\
+  - docker push mdziuba97/multi-nginx
 
 deploy:
   region: eu-central-1
